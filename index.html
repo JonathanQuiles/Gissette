@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+ <html lang="en" ng-app="myApp">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Para que se adapete a los dispositivos mas grandes-->
+    
+    <!-- LINKS de Bootrstrap y CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"><!--Bootstrap-->
+    <link rel="stylesheet" href="css/css.css"><!--CSS-->     
+    <link rel="stylesheet" href="font-awesome/css/all.min.css" crossorigin="anonymous"><!-- Iconos de font-awesome -->
+
+
+    <!--Los "SCRIPTS" van en este orden o no funcionaran despues-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    
+    <!-- ANGULAR -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script><!--Libreria de Angular-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script><!-- Archivo JS de Angular--> 
+ 
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet"><!-- Google Fonts-->        
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--Iconos de Google-->
+    
+	
+    <title>Gissette Ramirez</title>
+
+</head>
+    
+    
+
+     
+
+
+<body ng-controller="myCtrl">
+
+	
+<!-- NAVBAR -->
+<header class="titulos">
+    <nav>
+		<ul class="hidden-xs">
+        <li><a ng-href="index.html">Inicio</a></li>    
+        <li><a ng-href="contenido.html#!/Cuentos">Cuentos</a></li>    
+        <li><a ng-href="contenido.html#!/Fragmentos">Fragmentos</a></li>    
+        <li><a ng-href="contenido.html#!/Microrelatos">Microrelatos</a></li>    
+        <li><a ng-href="contenido.html#!/Retos">Retos</a></li>  
+		</ul>
+	</nav>
+</header>    
+
+	
+<!-- NAVBAR MOBILE -->  
+<div class="pos-f-t hidden-md hidden-lg hidden-xl" style="margin-bottom: 46px">
+        
+	<nav class="navbar navbar-blanco fondo-navbar text-center" style="box-shadow: 1px 2px 4px rgba(0, 0, 0, .5); border-bottom: 1px solid rgba(0, 0, 0,.1)">
+			
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menu					
+            </button>
+        </nav>
+        
+		
+	<div class="collapse" id="navbarToggleExternalContent">
+		<div class="fondo-navbar p-4">
+			<!-- NAV MOBILE -->   
+			<nav class="card-body text-left col-11 " style="margin-top: -25px">
+           
+            	<ul>    
+					<li class="col-12"><a class="nav-a-index" style="color: black; padding: 4px 12px" ng-href="index.html">Inicio</a></li>
+											
+                    <li class="col-12"><a class="nav-a-index" style="color: black; padding: 4px 12px" ng-href="contenido.html#!/Cuentos">Cuentos</a></li>
+						
+                    <li class="col-12"><a class="nav-a-index" style="color: black; padding: 4px 12px" ng-href="contenido.html#!/Fragmentos">Fragmentos</a></li>
+						
+                    <li class="col-12"><a class="nav-a-index" style="color: black; padding: 4px 12px" ng-href="contenido.html#!/Microrelatos">Microrelatos</a></li>
+						
+                    <li class="col-12"><a class="nav-a-index" style="color: black; padding: 4px 12px" ng-href="contenido.html#!/Retos">Retos</a></li>    
+                </ul>    
+			</nav>   
+		</div>
+	</div>
+
+</div>  
+	
+	
+	
+
+<!-- IMAGE -->	
+<img ng-src="imagenes/noche.jpg" class="img-fluid" alt="Responsive image">
+
+
+	
+	 
+    
+    
+<div class="container">
+<div class="row"> 
+    
+    <!-- INPUT SEARCH -->
+    <form class="form-inline my-2 col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+       
+    	<input class="form-control form-control-search col-11 col-md-8 col-lg-8 col-xl-8" style="margin-left: 15px" type="text" placeholder="Encuentra tu historia" aria-label="Search" ng-model="searchText">
+        
+   	</form>
+    
+	
+	
+    <!-- COLUMNA 1 -->
+    <div class="card-deck col-xl-12">
+
+        <!--Tarjeta -->
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex align-items-stretch" style="margin-top: 25px" ng-repeat="escrito in escritos.reverse() | filter:{titulo: searchText} | limitTo: 5">
+			
+           <div class="card" style="margin-top: 25px">
+					
+                <div class="card-body">
+ 
+                    <h4 class="card-title">{{escrito.titulo}}</h4>   
+                    <p>{{escrito.resena}}</p>
+                    
+                    <!-- ETIQUETA Y FECHA -->
+					<div class="row">
+
+						<div class="col-3">
+							<a href="contenido.html#!/{{escrito.categoria}}s" class="badge badge-primary">{{escrito.categoria}}</a>
+						</div>
+
+						<div class="col-7 offset-2 col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-8 offset-lg-1 col-xl-8 offset-1">
+							<p class="card-text text-right">
+								<small class="text-muted">Publicado el {{escrito.dia}}/{{escrito.mes}}/{{escrito.age}}</small>
+							</p>
+						</div>                        
+					</div>			
+                </div>
+                
+                <!--<img class="card-img-top" src="imagenes/gato.jpg">-->
+                
+				<!-- PIE DE PAGINA -->
+				<div class="card-footer"> 				
+					<div class="row">
+
+						<!-- COMPARTIR -->
+						<a class="col-2 col-sm-1 col-md-1 col-lg-2 col-xl-2" 
+						   style="color: black; margin-top: 8px" 
+						   data-html="true" data-toggle="popover" data-trigger="focus" data-placement="top" title="Compartir"
+						   data-content="
+										 <a href='#' target='_blank' style='color: black; padding: 10px'><i class='fab fa-facebook' aria-hidden='true'></i></a> 
+										 <a href='#' target='_blank' style='color: black; padding: 10px'><i class='fab fa-twitter' aria-hidden='true'></i></a> 
+										 <a href='#' target='_blank' style='color: black; padding: 10px'><i class='fab fa-facebook' aria-hidden='true'></i></a>">
+
+						   <i class="fa fa-share-alt" style="font-size: 18px" aria-hidden="true"></i>
+						</a>
+
+						<!-- BOTON -->
+						<a class="btn btn-morado col-3 col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 offset-7 offset-sm-8 offset-md-8 offset-lg-7 offset-xl-7" ng-href="contenido.html#!/historia/{{escrito.id}}">Leer</a>
+                        
+					</div>
+				</div> 
+								
+            </div> 
+        </div>
+    </div>    
+
+
+</div>   
+</div>
+    
+
+    
+	
+<!-- FOOTER -->
+<footer class="col-12 footer text-center" style="height: 100%">
+    <br>
+    <h1 class="col-12">Gissette Ramírez</h1>    
+
+	<div class="row">
+		<div class="col-lg-6 col-xl-6"  style="margin-top: 25px">
+			<h3>Quien Soy</h3>
+			<h5 class="text-justify col-lg-8 col-xl-8 offset-lg-2 offset-xl-2">Escritora de corazón, biomédica de carrera. Amante de libros, videojuegos, manga, anime, folkmetal, fantasía, terror, misterio, animales y cactus.</h5>
+		</div>
+		
+		
+		
+		<!-- REDES SOCIALES ESCRITORIO -->
+		<div class="col-lg-6 col-xl-6 hidden-xs hidden-sm"  style="margin-top: 25px">
+			<h3>Redes Sociales</h3>
+			
+			<div class="row">
+				<h5 class="text-left col-lg-4 col-xl-4 offset-lg-2 offset-xl-3"><a class="redes-sociales" href="#" target="_blank"><i class="fab fa-facebook-square"></i> Facebook</a></h5>
+
+				<h5 class="text-left col-lg-4 col-xl-4 offset-lg-1 offset-xl-0"><a class="redes-sociales" href="https://www.instagram.com/dkeevee9/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></h5>
+
+				<h5 class="text-left col-lg-4 col-xl-4 offset-lg-2 offset-xl-3"><a class="redes-sociales" href="https://twitter.com/DkEeveE" target="_blank"><i class="fab fa-twitter-square"></i> Twitter</a></h5>
+
+				<h5 class="text-left col-lg-4 col-xl-4 offset-lg-1 offset-xl-0"><a class="redes-sociales" href="#" target="_blank"><i class="fab fa-patreon"></i> Patreon</a></h5>
+			</div>
+		</div>		
+		
+		
+		
+		<!-- REDES SOCIALES MOVIL -->
+		<div class="col-12 hidden-md hidden-lg hidden-xl"  style="margin-top: 25px">
+			<h3>Redes Sociales</h3>
+			
+			<div class="row">
+				<h5 class="text-center col-12"><a class="redes-sociales" href="#" target="_blank"><i class="fab fa-facebook-square"></i> Facebook</a></h5>
+
+				<h5 class="text-center col-12"><a class="redes-sociales" href="https://www.instagram.com/dkeevee9/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></h5>
+
+				<h5 class="text-center col-12"><a class="redes-sociales" href="https://twitter.com/DkEeveE" target="_blank"><i class="fab fa-twitter-square"></i> Twitter</a></h5>
+
+				<h5 class="text-center col-12"><a class="redes-sociales" href="#" target="_blank"><i class="fab fa-patreon"></i> Patreon</a></h5>
+			</div>
+		</div>
+		
+		
+		
+	</div>
+</footer>
+
+    
+    
+    
+    
+<script type="text/javascript">
+//Popover 
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});     
+</script>  
+
+</body>
+</html>
