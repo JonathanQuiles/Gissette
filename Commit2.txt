@@ -1,0 +1,35 @@
+commit 24579c19f02d185af477e4617171567ddd3bb762
+Author: Jonathan <jona_walker@hotmail.com>
+Date:   Thu Jan 24 17:15:02 2019 -0600
+
+    3 Quien soy en Rama 1
+
+commit 2623df26c316206c8e5a799aec33966ca17a31bf
+Author: Jonathan <jona_walker@hotmail.com>
+Date:   Thu Jan 24 17:12:48 2019 -0600
+
+    Cambien en Rama 1
+
+commit ad3ab12879e97f7cc13a1a00e1f9ad1906b735fa
+Author: Jonathan <jona_walker@hotmail.com>
+Date:   Thu Jan 24 16:46:09 2019 -0600
+
+    Doble Quien soy
+
+commit 4932d55283b2263dd36deb1829c3a4d99e88b85f
+Author: Jonathan <jona_walker@hotmail.com>
+Date:   Thu Jan 24 16:40:56 2019 -0600
+
+    Archivo commit
+
+commit 9213cc3031e6cb7160ed540662cdbe05e46ff61e
+Author: Jonathan <jona_walker@hotmail.com>
+Date:   Thu Jan 24 16:39:08 2019 -0600
+
+    Hojas de estilo
+
+commit 13eb644f04a768929cd1032203f44c496a33b5c7
+Author: Jonathan <jona_walker@hotmail.com>
+Date:   Wed Jan 23 20:54:49 2019 -0600
+
+    Prueba 1 de Codigo Facilito
